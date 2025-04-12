@@ -10,7 +10,7 @@ export default function About() {
 
             As Salamu Alaykum
             <p></p>
-            Use SmartAzanClock.com to turn any Android, Amazon Echo or Raspberry Pi device into an actual adhan clock.
+            Use AdhanClock.com to turn any Android, Amazon Echo or Raspberry Pi device into an actual adhan clock.
             <p></p>
 
             <div className='d-flex flex-column gap-2'>

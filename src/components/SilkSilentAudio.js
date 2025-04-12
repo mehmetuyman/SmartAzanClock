@@ -24,7 +24,7 @@ export default function SilkSilentAudio() {
        };
        return (
               <div id='silkSettingDiv' style={{ display: isSilkOn ? 'none' : 'block' }} >
-                     <button className='btn btn-sm btn-primary' onClick={setSilkOn}>Click here to keep SmartAzanClock always ON on your Amazon device</button>
+                     <button className='btn btn-sm btn-primary' onClick={setSilkOn}>Click here to keep AdhanClock always ON on your Amazon device</button>
                      <audio id='silencePlayer' src={audioSilence} ref={silencePlayer} onPause={silenceContinue} onEnded={silenceContinue} />
               </div>
        )
