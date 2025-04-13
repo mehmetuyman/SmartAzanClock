@@ -93,16 +93,13 @@ export default function About() {
                     <a className='whiteLink fs-3' title='Prayer Times Chrome Extension' href="https://chrome.google.com/webstore/detail/prayer-times-chrome-exten/fbkmgnkliklgbmanjkmiihkdioepnkce">{FontAwesome.Chrome}</a>
                 </div>
                 <div>
-                    <a className='whiteLink fs-3' href="/setup/rpi/" title='Raspberry Pi Adhan Clock Setup Instructions'>{FontAwesome.RPi}</a>
-                </div>
-                <div>
                     <a className='whiteLink fs-3' title='adhanclock@gmail.com' href="mailto:adhanclock@gmail.com">{FontAwesome.Envelope}</a>
                 </div>
             </div>
 
             <p></p>
 
-        </div >
+        </div>
     )
 }
 

@@ -127,7 +127,6 @@ export default function AppContextProvider() {
     }
 
     return (
-
         <AppContext.Provider value={{ showMenu, setShowMenu, showMsg, isAudioPlaying, setIsAudioPlaying, ...output, updateSettings, updateOffset, previewAudio, reciteQuranAudio, dol }}>
             {output ? <Clock /> : null}
             {showLoading ? <Loading /> : null}

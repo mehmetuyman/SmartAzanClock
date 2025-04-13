@@ -180,7 +180,6 @@ export const SmartAzanClock = {
     }
 };
 
-
 const setAAA = (id, time) => {
     let AU = new AAA(id, time, false);
     let storedAU = JSON.parse(localStorage.getItem("AAA"));
