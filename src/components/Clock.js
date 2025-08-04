@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import { AppContext } from '../AppContext';
 import { format12 } from '../scripts/SmartAzanClock'
+import { useLanguage } from '../hooks/useLanguage';
 
 export default function Clock() {
 
@@ -14,11 +15,56 @@ export default function Clock() {
     const white = 'whitesmoke';
     const silver = 'silver';
 
+    function turkishSuffix(word) {
+        const vowels = 'aeıioöuü';
+        const backVowels = ['a', 'ı', 'o', 'u'];  // → use 'a'
+        const frontVowels = ['e', 'i', 'ö', 'ü']; // → use 'e'
+    
+        const lastVowel = [...word.toLowerCase()].reverse().find(c => vowels.includes(c));
+    
+        if (!lastVowel) return "'a"; // fallback
+    
+        return backVowels.includes(lastVowel) ? "'a" : "'e";
+    }
+    
+
+    const { strings, language } = useLanguage();
     useEffect(() => {
 
         const ctx = (canvasRef.current).getContext("2d")
 
         updateBackground(background);
+
+        const nextName = strings[nextVakit.name.toLowerCase()] || nextVakit.name;
+        const name = strings[nextVakit.name.toLowerCase()] || nextVakit.name;
+
+        let label = '';
+
+        if (language === "tr") {
+            label = 'Geçen süre ' + elapsed + ' . ' + nextName + turkishSuffix(nextName) +' kalan'
+        } else if (language === "en") {
+            label = 'Elapsed ' + elapsed + ' · ' + nextVakit.name + ' in';
+        }
+
+        let title = '';
+
+        if (language === "tr") {
+            title = `${nextName}${turkishSuffix(nextName)} ${nextText}`;
+        } else {
+            title = `${nextVakit.name} in ${nextText}`;
+        }
+
+        // Localized date
+        const localizedToday = new Date().toLocaleDateString(
+            language === "tr" ? "tr-TR" : "en-US",
+            {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+            }
+        );
+        const arcName = strings[currentArcVakit.name.toLowerCase()] || currentArcVakit.name;
 
         sac.clearCanvas(ctx)
             .fillCircle(ctx, 500, 0, 0, white, 0.33)
@@ -36,15 +82,16 @@ export default function Clock() {
             .drawArrow(ctx, hourAngle, 479, 41, 56, white)
             .drawCircle(ctx, 482, black, 9)
             .print(ctx, displayTime, 250, white, -27)
-            .print(ctx, 'Elapsed ' + elapsed + ' · ' + nextVakit.name + ' in', 31, white, 109)
+            .print(ctx, label, 31, white, 109)
             .print(ctx, nextText, 156, white, 223)
-            .updateTitle(ctx, nextVakit.name + ' in ' + nextText)
-            .arcText(ctx, 'top', todaysDate, 45, 337, white)
+            .updateTitle(ctx, title)
+            .arcText(ctx, 'top', localizedToday, 45, 337, white)
             .arcText(ctx, 'top', hijriDate, 39, 265, white)
             .arcText(ctx, 'bottom', '#vakits#', 31, 377, white)
 
         if (currentArcVakit.name != 'Duhaend')
-            sac.print(ctx, currentArcVakit.name, 37, white, -191);
+            
+            sac.print(ctx, arcName, 37, white, -191);
 
     })
 
@@ -256,7 +303,8 @@ export default function Clock() {
             if (text === '#vakits#') {
                 text = '';
                 for (let v in vakits) {
-                    text += vakits[v].name + ' ' + format12(vakits[v].time);
+                    const name = strings[vakits[v].name.toLowerCase()] || vakits[v].name;
+                    text += name + ' ' + format12(vakits[v].time);
                     if (v * 1 !== (vakits.length - 1) * 1)
                         text += ' · ';
                 }

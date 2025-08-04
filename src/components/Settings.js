@@ -9,6 +9,8 @@ import { CalculationMethods, AsrCalculationMethods } from '../data/CalculationMe
 import { AppContext } from '../AppContext';
 import { FontAwesome } from '../data/FontAwesome';
 import { format12 } from '../scripts/SmartAzanClock';
+import { useLanguage } from '../hooks/useLanguage';
+
 
 export default function Settings() {
 
@@ -20,6 +22,8 @@ export default function Settings() {
         CalculationMethodValues.push({ id: k, name: CalculationMethods[k].name });
     })
 
+    const { strings, language, changeLanguage } = useLanguage();
+
     const azanSettingsHTML = [];
     const Vakits = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
     Vakits.map((item) => {
@@ -29,13 +33,14 @@ export default function Settings() {
         let offsetValue = offsetSettings[cVakit];
         let values = (item === "Fajr") ? FajrAzans : Azans;
         let vTime = vakits.find(v => v.name === item).displayTime;
-
+        let itemName = strings[item.toLowerCase()] || item;
+        let adhanLabel = strings["adhan"] || "Adhan";
         azanSettingsHTML.push(
 
             <div key={item} className="mt-2">
 
                 <div className='d-flex flex-row justify-content-between'>
-                    <div><span className='badge p-0'>{item} Adhan @ {vTime}</span></div>
+                    <div><span className='badge p-0'>{itemName} {adhanLabel} @ {vTime}</span></div>
                     <div className='col-4'><span className='badge'>Minute Offset</span></div>
                 </div>
 
@@ -65,6 +70,18 @@ export default function Settings() {
 
     return (
         <div>
+            <div className="form-group">
+            <span className='badge mb-1 p-0'>Choose App Language</span>
+            <label>{strings.language}</label>
+            <select
+                value={language}
+                onChange={(e) => changeLanguage(e.target.value)}
+                className="form-control"
+            >
+                <option value="en">English</option>
+                <option value="tr">Türkçe</option>
+            </select>
+            </div>
 
             <Address value={locationSettings.address} />
 
