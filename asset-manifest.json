@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/SmartAzanClock/static/css/main.1acb6802.css",
+    "main.js": "/SmartAzanClock/static/js/main.afa1a6eb.js",
+    "static/media/7.mp3": "/SmartAzanClock/static/media/7.44a7ce8a16884d3e1d5b.mp3",
+    "static/media/14.mp3": "/SmartAzanClock/static/media/14.ea7a7359acc80f03ec6b.mp3",
+    "static/media/11.mp3": "/SmartAzanClock/static/media/11.c895f6b9ae0205750d88.mp3",
+    "static/media/1.mp3": "/SmartAzanClock/static/media/1.88ff7be58d3f9fe573f8.mp3",
+    "static/media/12.mp3": "/SmartAzanClock/static/media/12.6009181b553755e4cd39.mp3",
+    "static/media/2.mp3": "/SmartAzanClock/static/media/2.b2fb2368080e4fa65e31.mp3",
+    "static/media/13.mp3": "/SmartAzanClock/static/media/13.9b0b4233cbdf51cdc597.mp3",
+    "static/media/9.mp3": "/SmartAzanClock/static/media/9.3a07d7cffcf4abdb3f2f.mp3",
+    "static/media/4.mp3": "/SmartAzanClock/static/media/4.f5d1659730778c74353f.mp3",
+    "static/media/10.mp3": "/SmartAzanClock/static/media/10.f3fc30b7456abfb69514.mp3",
+    "static/media/8.mp3": "/SmartAzanClock/static/media/8.86fbc318f51f3ce24fe3.mp3",
+    "static/media/6.mp3": "/SmartAzanClock/static/media/6.b1bc9a82a3c12201e364.mp3",
+    "static/media/3.mp3": "/SmartAzanClock/static/media/3.35f278e780e50242db91.mp3",
+    "static/media/5.mp3": "/SmartAzanClock/static/media/5.0f43a794639c5db5825c.mp3",
+    "static/media/1.jpg": "/SmartAzanClock/static/media/1.675a164049a2c1975ccc.jpg",
+    "static/media/2.jpg": "/SmartAzanClock/static/media/2.c37c37b8a538338c2fae.jpg",
+    "static/media/0.jpg": "/SmartAzanClock/static/media/0.bd8067959d5cefb6d53d.jpg",
+    "static/media/103.mp3": "/SmartAzanClock/static/media/103.bf05915f4b4def0badde.mp3",
+    "static/media/loading.png": "/SmartAzanClock/static/media/loading.46e014b6bbc20b1638c5.png",
+    "static/media/101.mp3": "/SmartAzanClock/static/media/101.d06b97e2e4a920e64a6c.mp3",
+    "static/media/silence.mp3": "/SmartAzanClock/static/media/silence.3f2b806758b918b32854.mp3",
+    "static/media/lenovo-m10-tab.jpg": "/SmartAzanClock/static/media/lenovo-m10-tab.206019e2f1b06d2920e4.jpg",
+    "static/media/lenovo-m8-tab.jpg": "/SmartAzanClock/static/media/lenovo-m8-tab.de962b77415c82cea0c7.jpg",
+    "service-worker.js": "/SmartAzanClock/service-worker.js",
+    "static/media/102.mp3": "/SmartAzanClock/static/media/102.2ff54c60bb52ae117151.mp3",
+    "index.html": "/SmartAzanClock/index.html",
+    "main.1acb6802.css.map": "/SmartAzanClock/static/css/main.1acb6802.css.map",
+    "main.afa1a6eb.js.map": "/SmartAzanClock/static/js/main.afa1a6eb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1acb6802.css",
+    "static/js/main.afa1a6eb.js"
+  ]
+}
