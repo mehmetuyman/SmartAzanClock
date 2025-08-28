@@ -3,7 +3,7 @@ import { AppContext } from '../AppContext';
 
 export default function Options(props) {
 
-    const { updateSettings, calculationSettings, azanSettings, deviceSettings, offsetSettings } = useContext(AppContext)
+    const { updateSettings, calculationSettings, azanSettings, deviceSettings, offsetSettings, preReminderEnabled, preReminderMinutes, preReminderAudio } = useContext(AppContext)
 
     function updateValue(v) {
         let settingName = props.name.split('.')[0];

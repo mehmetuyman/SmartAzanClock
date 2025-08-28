@@ -14,7 +14,7 @@ export const SmartAzanClock = {
     colors: { black: 'black', white: 'whitesmoke' },
     getPrayerTime(vakit) { return this.prayerTimes[vakit].replace(/^0/, ''); },
     run(info) {
-
+        
         //console.log('SmartAzanClock.run: ' + (info ?? ''))
 
         let storedSettings = JSON.parse(localStorage.getItem('settings'));
@@ -133,11 +133,27 @@ export const SmartAzanClock = {
             this.output.background = '';
         }
 
+        // On-time adhan
         if (this.currentTimeString === this.currentVakit.time && this.settings.deviceSettings.azanCallsEnabled === 'Y') {
             let cvakit = this.currentVakit.name.toLowerCase();
             if (this.settings.azanSettings[cvakit]) {
                 let aaID = this.settings.azanSettings[cvakit] * 1;
                 setAAA(aaID, this.currentTimeString);
+            }
+        }
+
+        // Pre-adhan reminder for configured prayers
+        const prayers = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+        for (let p of prayers) {
+            const key = p.toLowerCase();
+            const enabled = (this.settings.preReminderEnabled && this.settings.preReminderEnabled[key]) === 'Y';
+            if (!enabled) continue;
+            const minutes = (this.settings.preReminderMinutes && this.settings.preReminderMinutes[key]) ?? 10;
+            const audioId = (this.settings.preReminderAudio && this.settings.preReminderAudio[key]) || '102';
+            const vakitTime = this.getPrayerTime(key);
+            const reminderTime = addMinutesToTime(vakitTime, -1 * (minutes * 1));
+            if (this.currentTimeString === reminderTime && this.settings.deviceSettings.azanCallsEnabled === 'Y') {
+                setAAA(audioId * 1, reminderTime);
             }
         }
 
