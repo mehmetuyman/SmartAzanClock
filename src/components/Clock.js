@@ -26,11 +26,8 @@ export default function Clock() {
     
         return backVowels.includes(lastVowel) ? "'a" : "'e";
     }
-    
-
     const { strings, language } = useLanguage();
     useEffect(() => {
-
         const ctx = (canvasRef.current).getContext("2d")
 
         updateBackground(background);
@@ -93,7 +90,22 @@ export default function Clock() {
             
             sac.print(ctx, arcName, 37, white, -191);
 
-    })
+    }, [
+        language,
+        displayTime,
+        nextText,
+        background,
+        dim,
+        clockOpacity,
+        hourAngle,
+        midnightAngle,
+        oneThirdAngle,
+        twoThirdAngle,
+        currentArcVakit,
+        nextVakit,
+        currentVakit,
+        vakits
+    ]);
 
     const sac = {
         clearCanvas: (ctx) => {
