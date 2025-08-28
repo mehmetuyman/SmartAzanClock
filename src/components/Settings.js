@@ -15,7 +15,8 @@ import { useLanguage } from '../hooks/useLanguage';
 export default function Settings() {
 
     const { vakits, arcVakits, calculationSettings, locationSettings, deviceSettings, azanSettings,
-        offsetSettings, updateOffset, previewAudio, oneThirdTime, twoThirdTime, midnightTime } = useContext(AppContext)
+        offsetSettings, preReminderEnabled, preReminderMinutes, preReminderAudio,
+        updateSettings, updateOffset, previewAudio, oneThirdTime, twoThirdTime, midnightTime } = useContext(AppContext)
 
     const CalculationMethodValues = [];
     Object.keys(CalculationMethods).forEach(k => {
@@ -25,6 +26,27 @@ export default function Settings() {
     const { strings, language, changeLanguage } = useLanguage();
 
     const azanSettingsHTML = [];
+    const OnOff = [{ id: 'N', name: 'Off' }, { id: 'Y', name: 'On' }];
+
+    const PRE_MIN_LIMIT = 0;
+    const PRE_MAX_LIMIT = 360; // allow up to 3 hours before
+
+    const updatePreReminderMinute = (cVakit, op) => {
+        const current = preReminderMinutes[cVakit] ?? 10;
+        let newVal = current + (op === '+' ? 1 : -1);
+        if (op === '0') newVal = 0;
+        if (newVal < PRE_MIN_LIMIT) newVal = PRE_MIN_LIMIT;
+        if (newVal > PRE_MAX_LIMIT) newVal = PRE_MAX_LIMIT;
+        updateSettings({ preReminderMinutes: { ...preReminderMinutes, [cVakit]: newVal } });
+    }
+
+    const updatePreReminderMinuteInput = (cVakit, value) => {
+        let v = parseInt(value, 10);
+        if (isNaN(v)) v = PRE_MIN_LIMIT;
+        if (v < PRE_MIN_LIMIT) v = PRE_MIN_LIMIT;
+        if (v > PRE_MAX_LIMIT) v = PRE_MAX_LIMIT;
+        updateSettings({ preReminderMinutes: { ...preReminderMinutes, [cVakit]: v } });
+    }
     const Vakits = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
     Vakits.map((item) => {
 
@@ -35,6 +57,9 @@ export default function Settings() {
         let vTime = vakits.find(v => v.name === item).displayTime;
         let itemName = strings[item.toLowerCase()] || item;
         let adhanLabel = strings["adhan"] || "Adhan";
+        const preEnabled = preReminderEnabled[cVakit] || 'N';
+        const preMinutes = preReminderMinutes[cVakit] ?? 10;
+        const preAudioId = preReminderAudio[cVakit] || '102';
         azanSettingsHTML.push(
 
             <div key={item} className="mt-2">
@@ -59,6 +84,39 @@ export default function Settings() {
                             <div className='col-4'><button type='button' onClick={() => { updateOffset(cVakit, '-'); document.activeElement.blur(); }} className='btn btn-sm btn-light col-12'>{FontAwesome.Minus}</button></div>
                             <div className='col-4'><button type='button' onClick={() => { updateOffset(cVakit, '0'); document.activeElement.blur(); }} className={'btn btn-sm col-12 ' + ((offsetValue === 0) ? 'btn-light' : 'btn-danger')}>{offsetValue}</button></div>
                             <div className='col-4'><button type='button' onClick={() => { updateOffset(cVakit, '+'); document.activeElement.blur(); }} className='btn btn-sm btn-light col-12'>{FontAwesome.Plus}</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Pre-Reminder controls */}
+                <div className='mt-2'>
+                    <div className='d-flex flex-row justify-content-between'>
+                        <div><span className='badge p-0'>Pre-Reminder</span></div>
+                        <div><span className='badge'>Minutes Before</span></div>
+                    </div>
+                    <div className='row align-items-center g-1'>
+                        <div className='col-12 col-md-3'>
+                            <Options name={'preReminderEnabled.' + cVakit} selectedValue={preEnabled} values={OnOff} />
+                        </div>
+                        <div className='col-12 col-md-5'>
+                            <DropDown name={'preReminderAudio.' + cVakit} selectedValue={preAudioId} values={Azans} />
+                        </div>
+                        <div className='col-6 col-md-2'>
+                            <button onClick={() => { previewAudio(preAudioId * 1); document.activeElement.blur(); }}
+                                type='button'
+                                className='btn btn-sm btn-secondary col-12'>{FontAwesome.Play}</button>
+                        </div>
+                        <div className='col-6 col-md-2'>
+                            <div className='input-group input-group-sm'>
+                                <input type='number'
+                                    className='form-control'
+                                    min={PRE_MIN_LIMIT}
+                                    max={PRE_MAX_LIMIT}
+                                    step='1'
+                                    value={preMinutes}
+                                    onChange={(e) => { updatePreReminderMinuteInput(cVakit, e.target.value); }} />
+                                <span className='input-group-text'>min</span>
+                            </div>
                         </div>
                     </div>
                 </div>
