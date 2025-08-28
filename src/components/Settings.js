@@ -29,7 +29,7 @@ export default function Settings() {
     const OnOff = [{ id: 'N', name: 'Off' }, { id: 'Y', name: 'On' }];
 
     const PRE_MIN_LIMIT = 0;
-    const PRE_MAX_LIMIT = 360; // allow up to 3 hours before
+    const PRE_MAX_LIMIT = 180; // allow up to 3 hours before
 
     const updatePreReminderMinute = (cVakit, op) => {
         const current = preReminderMinutes[cVakit] ?? 10;
