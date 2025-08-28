@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SmartAzanClock/static/css/main.1acb6802.css",
-    "main.js": "/SmartAzanClock/static/js/main.cf070202.js",
+    "main.js": "/SmartAzanClock/static/js/main.d75fae3f.js",
     "static/media/7.mp3": "/SmartAzanClock/static/media/7.44a7ce8a16884d3e1d5b.mp3",
     "static/media/14.mp3": "/SmartAzanClock/static/media/14.ea7a7359acc80f03ec6b.mp3",
     "static/media/11.mp3": "/SmartAzanClock/static/media/11.c895f6b9ae0205750d88.mp3",
@@ -29,10 +29,10 @@
     "static/media/102.mp3": "/SmartAzanClock/static/media/102.2ff54c60bb52ae117151.mp3",
     "index.html": "/SmartAzanClock/index.html",
     "main.1acb6802.css.map": "/SmartAzanClock/static/css/main.1acb6802.css.map",
-    "main.cf070202.js.map": "/SmartAzanClock/static/js/main.cf070202.js.map"
+    "main.d75fae3f.js.map": "/SmartAzanClock/static/js/main.d75fae3f.js.map"
   },
   "entrypoints": [
     "static/css/main.1acb6802.css",
-    "static/js/main.cf070202.js"
+    "static/js/main.d75fae3f.js"
   ]
 }
