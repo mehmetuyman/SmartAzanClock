@@ -91,7 +91,7 @@ export default function Settings() {
                 {/* Pre-Reminder controls */}
                 <div className='mt-2'>
                     <div className='d-flex flex-row justify-content-between'>
-                        <div><span className='badge p-0'>Pre-Reminder</span></div>
+                        <div><span className='badge p-0'>{itemName} {adhanLabel} {strings["preReminder"] || 'Pre-Reminder'}</span></div>
                         <div><span className='badge'>Minutes Before</span></div>
                     </div>
                     <div className='row align-items-center g-1'>

@@ -8,10 +8,11 @@
     "fajr": "Fajr",
     "sunrise": "Sunrise",
     "dhuhr": "Dhuhr",
-    "asr": "Asr",
-    "maghrib": "Maghrib",
-    "isha": "Isha",
-    "adhan":"Adhan1"
-  }
+  "asr": "Asr",
+  "maghrib": "Maghrib",
+  "isha": "Isha",
+  "adhan":"Adhan1",
+  "preReminder": "Pre-Reminder"
+}
   
   

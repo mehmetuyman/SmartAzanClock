@@ -76,7 +76,13 @@ export default function Menu() {
                                 </div>) : null}
 
                                 {navigator.onLine ? (<div className='col-6'>
-                                    <a className='btn btn-sm col-12 btn-primary' href="/">Refresh</a>
+                                    <button
+                                        type='button'
+                                        className='btn btn-sm col-12 btn-primary'
+                                        onClick={() => window.location.reload()}
+                                    >
+                                        Refresh
+                                    </button>
                                 </div>) : null}
 
                                 {navigator.onLine ? (<div className='col-6'>

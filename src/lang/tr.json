@@ -8,9 +8,10 @@
     "fajr": "Sabah",
     "sunrise": "Güneş",
     "dhuhr": "Öğle",
-    "asr": "İkindi",
-    "maghrib": "Akşam",
-    "isha": "Yatsı",
-    "adhan":"Ezanı"
-  }
+  "asr": "İkindi",
+  "maghrib": "Akşam",
+  "isha": "Yatsı",
+  "adhan":"Ezanı",
+  "preReminder": "Ön Hatırlatma"
+}
   
