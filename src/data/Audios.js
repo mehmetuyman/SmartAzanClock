@@ -39,9 +39,9 @@ export const Audios = [
     { id: 101, source: audio101, name: 'Bismillahirrahmanirrahim (0:05)', isAzan: true, isFajrAzan: true, isAlarm: true },
     { id: 102, source: audio102, name: 'Soft Beep Sound (0:01)', isAzan: true, isFajrAzan: true, isAlarm: true },
     { id: 103, source: audio103, name: 'As-Salatu Khayrun Minan Nawm (0:28)', isAzan: false, isFajrAzan: false, isAlarm: true },
-    { id: 104, source: son15dk, name: 'Son 15 Dakika', isAzan: true, isFajrAzan: true, isAlarm: true },
-    { id: 105, source: son15dk2, name: 'Son 15 Dakika 2', isAzan: true, isFajrAzan: true, isAlarm: true },
-    { id: 106, source: son15dk3, name: 'Son 15 Dakika 3', isAzan: true, isFajrAzan: true, isAlarm: true }
+    { id: 104, source: son15dk, name: 'Son 15 Dakika', isAzan: false, isFajrAzan: false, isAlarm: true },
+    { id: 105, source: son15dk2, name: 'Son 15 Dakika 2', isAzan: false, isFajrAzan: false, isAlarm: true },
+    { id: 106, source: son15dk3, name: 'Son 15 Dakika 3', isAzan: false, isFajrAzan: false, isAlarm: true }
 ]
 
 /* Surahs commonly recited after Salah */

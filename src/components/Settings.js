@@ -4,7 +4,7 @@ import DropDown from './DropDown';
 import Options from './Options';
 import { AzanCallOptions } from '../data/AzanCallOptions';
 import { DeviceModes } from '../data/DeviceModes';
-import { FajrAzans, Azans } from '../data/Audios';
+import { FajrAzans, Azans, AlarmAudios } from '../data/Audios';
 import { CalculationMethods, AsrCalculationMethods } from '../data/CalculationMethods';
 import { AppContext } from '../AppContext';
 import { FontAwesome } from '../data/FontAwesome';
@@ -99,7 +99,7 @@ export default function Settings() {
                             <Options name={'preReminderEnabled.' + cVakit} selectedValue={preEnabled} values={OnOff} />
                         </div>
                         <div className='col-12 col-md-5'>
-                            <DropDown name={'preReminderAudio.' + cVakit} selectedValue={preAudioId} values={Azans} />
+                            <DropDown name={'preReminderAudio.' + cVakit} selectedValue={preAudioId} values={AlarmAudios} />
                         </div>
                         <div className='col-6 col-md-2'>
                             <button onClick={() => { previewAudio(preAudioId * 1); document.activeElement.blur(); }}
@@ -144,7 +144,7 @@ export default function Settings() {
                         <Options name={'preReminderEnabled.' + cVakit} selectedValue={preEnabled} values={OnOff} />
                     </div>
                     <div className='col-12 col-md-5'>
-                        <DropDown name={'preReminderAudio.' + cVakit} selectedValue={preAudioId} values={Azans} />
+                        <DropDown name={'preReminderAudio.' + cVakit} selectedValue={preAudioId} values={AlarmAudios} />
                     </div>
                     <div className='col-6 col-md-2'>
                         <button onClick={() => { previewAudio(preAudioId * 1); document.activeElement.blur(); }}
