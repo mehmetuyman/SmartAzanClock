@@ -7,7 +7,7 @@ export const DefaultSettings = {
     azanSettings: { fajr: '13', dhuhr: '7', asr: '9', maghrib: '6', isha: '3' },
     // Pre-Adhan reminder settings
     preReminderEnabled: { fajr: 'N', dhuhr: 'N', asr: 'N', maghrib: 'N', isha: 'N' },
-    preReminderMinutes: { fajr: 10, dhuhr: 10, asr: 10, maghrib: 10, isha: 10 },
+    preReminderMinutes: { fajr: 15, dhuhr: 15, asr: 15, maghrib: 15, isha: 15 },
     preReminderAudio: { fajr: '102', dhuhr: '102', asr: '102', maghrib: '102', isha: '102' },
     offsetSettings: { fajr: 0, dhuhr: 0, asr: 0, maghrib: 0, isha: 0 },
     alarmSettings: [],

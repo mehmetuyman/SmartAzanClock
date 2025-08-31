@@ -148,7 +148,7 @@ export const SmartAzanClock = {
             const key = p.toLowerCase();
             const enabled = (this.settings.preReminderEnabled && this.settings.preReminderEnabled[key]) === 'Y';
             if (!enabled) continue;
-            const minutes = (this.settings.preReminderMinutes && this.settings.preReminderMinutes[key]) ?? 10;
+            const minutes = (this.settings.preReminderMinutes && this.settings.preReminderMinutes[key]) ?? 15;
             const audioId = (this.settings.preReminderAudio && this.settings.preReminderAudio[key]) || '102';
             const vakitTime = this.getPrayerTime(key);
             const reminderTime = addMinutesToTime(vakitTime, -1 * (minutes * 1));

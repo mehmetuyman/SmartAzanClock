@@ -32,7 +32,7 @@ export default function Settings() {
     const PRE_MAX_LIMIT = 180; // allow up to 3 hours before
 
     const updatePreReminderMinute = (cVakit, op) => {
-        const current = preReminderMinutes[cVakit] ?? 10;
+        const current = preReminderMinutes[cVakit] ?? 15;
         let newVal = current + (op === '+' ? 1 : -1);
         if (op === '0') newVal = 0;
         if (newVal < PRE_MIN_LIMIT) newVal = PRE_MIN_LIMIT;
@@ -58,7 +58,7 @@ export default function Settings() {
         let itemName = strings[item.toLowerCase()] || item;
         let adhanLabel = strings["adhan"] || "Adhan";
         const preEnabled = preReminderEnabled[cVakit] || 'N';
-        const preMinutes = preReminderMinutes[cVakit] ?? 10;
+        const preMinutes = preReminderMinutes[cVakit] ?? 15;
         const preAudioId = preReminderAudio[cVakit] || '102';
         azanSettingsHTML.push(
 
