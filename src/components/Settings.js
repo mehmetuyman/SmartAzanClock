@@ -126,6 +126,48 @@ export default function Settings() {
         )
     })
 
+    // Sunrise pre-reminder controls
+    {
+        const cVakit = 'sunrise';
+        const sunriseLabel = strings['sunrise'] || 'Sunrise';
+        const preEnabled = preReminderEnabled[cVakit] || 'N';
+        const preMinutes = preReminderMinutes[cVakit] ?? 15;
+        const preAudioId = preReminderAudio[cVakit] || '102';
+        azanSettingsHTML.push(
+            <div key={'Sunrise'} className="mt-2">
+                <div className='d-flex flex-row justify-content-between'>
+                    <div><span className='badge p-0'>{sunriseLabel} {strings["preReminder"] || 'Pre-Reminder'}</span></div>
+                    <div><span className='badge'>Minutes Before</span></div>
+                </div>
+                <div className='row align-items-center g-1'>
+                    <div className='col-12 col-md-3'>
+                        <Options name={'preReminderEnabled.' + cVakit} selectedValue={preEnabled} values={OnOff} />
+                    </div>
+                    <div className='col-12 col-md-5'>
+                        <DropDown name={'preReminderAudio.' + cVakit} selectedValue={preAudioId} values={Azans} />
+                    </div>
+                    <div className='col-6 col-md-2'>
+                        <button onClick={() => { previewAudio(preAudioId * 1); document.activeElement.blur(); }}
+                            type='button'
+                            className='btn btn-sm btn-secondary col-12'>{FontAwesome.Play}</button>
+                    </div>
+                    <div className='col-6 col-md-2'>
+                        <div className='input-group input-group-sm'>
+                            <input type='number'
+                                className='form-control'
+                                min={PRE_MIN_LIMIT}
+                                max={PRE_MAX_LIMIT}
+                                step='1'
+                                value={preMinutes}
+                                onChange={(e) => { updatePreReminderMinuteInput(cVakit, e.target.value); }} />
+                            <span className='input-group-text'>min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div>
             <div className="form-group">

@@ -18,6 +18,8 @@ import audio103 from '../mp3s/103.mp3';
 import son15dk from '../mp3s/son15dk.mp3';
 
 import { TimeToRadians } from '../scripts/Common';
+import son15dk2 from '../mp3s/son15dk-2.mp3';
+import son15dk3 from '../mp3s/son15dk-3.mp3';
 
 export const Audios = [
     { id: 1, source: audio1, name: 'Bosnian Style by Eldin Huseinbegovic (3:11)', isAzan: true, isFajrAzan: false, isAlarm: false },
@@ -37,7 +39,9 @@ export const Audios = [
     { id: 101, source: audio101, name: 'Bismillahirrahmanirrahim (0:05)', isAzan: true, isFajrAzan: true, isAlarm: true },
     { id: 102, source: audio102, name: 'Soft Beep Sound (0:01)', isAzan: true, isFajrAzan: true, isAlarm: true },
     { id: 103, source: audio103, name: 'As-Salatu Khayrun Minan Nawm (0:28)', isAzan: false, isFajrAzan: false, isAlarm: true },
-    { id: 104, source: son15dk, name: 'Son 15 Dakika', isAzan: true, isFajrAzan: true, isAlarm: true }
+    { id: 104, source: son15dk, name: 'Son 15 Dakika', isAzan: true, isFajrAzan: true, isAlarm: true },
+    { id: 105, source: son15dk2, name: 'Son 15 Dakika 2', isAzan: true, isFajrAzan: true, isAlarm: true },
+    { id: 106, source: son15dk3, name: 'Son 15 Dakika 3', isAzan: true, isFajrAzan: true, isAlarm: true }
 ]
 
 /* Surahs commonly recited after Salah */

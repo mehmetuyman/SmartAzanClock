@@ -143,7 +143,7 @@ export const SmartAzanClock = {
         }
 
         // Pre-adhan reminder for configured prayers
-        const prayers = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+        const prayers = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
         for (let p of prayers) {
             const key = p.toLowerCase();
             const enabled = (this.settings.preReminderEnabled && this.settings.preReminderEnabled[key]) === 'Y';
