@@ -86,7 +86,7 @@ export default function Menu() {
                                 </div>) : null}
 
                                 {navigator.onLine ? (<div className='col-6'>
-                                    <a className='btn btn-sm col-12 btn-danger' href="/reset/">Reset</a>
+                                    <a className='btn btn-sm col-12 btn-danger' href={`${process.env.PUBLIC_URL}/reset/`}>Reset</a>
                                 </div>) : null}
 
                             </div>
